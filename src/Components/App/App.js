@@ -9,44 +9,44 @@ class App extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        searchResults: [
+        searchResults : [
           {
-            name: 'name1',
-            artist: 'artist1',
-            album: 'album1',
-            id: 1
+            name : 'Malarcky',
+            artist : 'Joe Biden',
+            album : 'The Best of Joe Biden',
+            id : 1
           },
           {
-            name: 'name2',
-            artist: 'artist2',
-            album: 'album2',
-            id: 2
+            name : 'Across the Golden Fields',
+            artist : 'Foxy Shazam',
+            album : 'The Flamingo Trigger',
+            id : 2
           },
           {
-            name: 'name3',
-            artist: 'artist3',
-            album: 'album3',
+            name : 'Tocixity',
+            artist : 'System of a Down',
+            album : 'Toxicity',
             id: 3
           }
         ],
-        playlistName: 'My Playlist',
-        playlistTracks: [
+        playlistName: 'Intense Music Playlist',
+        playlistTracks : [
           {
-            name: 'name4',
-            artist: 'artist4',
-            album: 'album4',
+            name: 'Nookie',
+            artist: 'Limb Bizkit',
+            album: 'Significant Other',
             id: 4
           },
           {
-            name: 'name5',
-            artist: 'artist5',
-            album: 'album5',
+            name: 'Turbo Killer',
+            artist: 'Carpenter Brut',
+            album: 'Trilogy',
             id: 5
           },
           {
-            name: 'name6',
-            artist: 'artist6',
-            album: 'album6',
+            name: 'Let the Bodies Hit the Floor',
+            artist: 'Drowning Pool',
+            album: 'Nu Metal Various Artists Collection',
             id: 6
           }
         ]
@@ -91,8 +91,8 @@ class App extends Component {
       <div className="App">
         <SearchBar />
         <div className="App-playlist">
-          <SearchResults searchResults={ this.props.SearchResults } />
-          <Playlist />
+          <SearchResults searchResults={ this.state.SearchResults } />
+          <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks}/>
         </div>
       </div>
     </div>

@@ -5,7 +5,11 @@ export class Track extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            track: this.props.track
+            onClick: this.addTrack,
+            track : this.props.track,
+            name: this.props.track.name,
+            artist: this.props.track.artist,
+            album: this.props.track.album,
         };
         this.addTrack = this.addTrack.bind(this);
         this.removeTrack = this.removeTrack.bind(this);

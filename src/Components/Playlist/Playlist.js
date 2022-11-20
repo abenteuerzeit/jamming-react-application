@@ -7,10 +7,14 @@ export class Playlist extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        name: "New Playlist",
+            playlistName : "New Playlist",
+            playlistTracks : []
         };
         this.handleNameChange = this.handleNameChange.bind(this);
     }
+
+
+ 
     
     handleNameChange(event) {
         this.setState({ name: event.target.value });
@@ -20,7 +24,7 @@ export class Playlist extends Component {
         return (
         <div className="Playlist">
             <input defaultValue={"New Playlist"} onChange={this.handleNameChange} />
-            <TrackList />
+            <TrackList tracks={this.props.playlistTracks} />
             <button className="Playlist-save">SAVE TO SPOTIFY</button>
         </div>
         );
