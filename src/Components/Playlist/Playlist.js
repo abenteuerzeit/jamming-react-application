@@ -8,7 +8,7 @@ class Playlist extends Component {
         super(props);
         this.state = {
             playlistName : "New Playlist",
-            playlistTracks : []
+            playlistTracks : this.props.playlistTracks,
         };
         this.handleNameChange = this.handleNameChange.bind(this);
     }

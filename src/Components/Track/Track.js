@@ -1,6 +1,5 @@
 import React, { Component} from 'react';
 import './Track.css';
-
 class Track extends Component {
     constructor(props) {
         super(props);
@@ -11,7 +10,6 @@ class Track extends Component {
         this.addTrack = this.addTrack.bind(this);
         this.removeTrack = this.removeTrack.bind(this);
     }
-
     renderAction() {
         if (this.props.isRemoval) {
             return <button className="Track-action" onClick={this.removeTrack}>-</button>;
@@ -19,15 +17,12 @@ class Track extends Component {
             return <button className="Track-action" onClick={this.addTrack}>+</button>;
         }
     }
-
     addTrack() {
         this.props.onAdd(this.state.track);
     }
-
     removeTrack() {
         this.props.onRemove(this.state.track);
     }
-
     render() {
         return (
             <div className="Track">
@@ -40,5 +35,4 @@ class Track extends Component {
         );
     }
 }
-
 export default Track;
