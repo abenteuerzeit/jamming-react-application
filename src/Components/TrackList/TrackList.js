@@ -7,13 +7,22 @@ export class TrackList extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            isRemoval: this.props.isRemoval,
+            onAdd: this.props.onAdd,
+            onRemove: this.props.onRemove,
         };
         this.addTrack = this.addTrack.bind(this);
+        this.removeTrack = this.removeTrack.bind(this);
     }
 
     addTrack() {
         this.props.onAdd(this.props.track);
     }
+
+    removeTrack() {
+        this.props.onRemove(this.props.track);
+    }
+
 
     render() {
         return (
@@ -25,8 +34,11 @@ export class TrackList extends Component {
                         artist = { this.props.track.artist } 
                         album = { this.props.track.album } 
                         key = { track.id } 
-                        onAdd = { this.props.onAdd }    
-                    />)
+                        onAdd = { this.props.onAdd }
+                        onRemove = { this.props.onRemove }
+                        isRemoval = { this.props.isRemoval }    
+                    />
+                )
                 }
             </div> 
         );
