@@ -1,9 +1,9 @@
-import { React, Component } from "react";
-import { TrackList } from "../TrackList/TrackList";
+import React, { Component } from "react";
+import TrackList from "../TrackList/TrackList";
 import "./Playlist.css";
 
 
-export class Playlist extends Component {
+class Playlist extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -25,8 +25,7 @@ export class Playlist extends Component {
                 tracks={this.props.playlistTracks} 
                 onRemove={this.props.onRemove}
                 isRemoval={true} 
-                onChange={this.handleNameChange}
-                    
+                onChange={this.handleNameChange}        
                 />
             <button className="Playlist-save">SAVE TO SPOTIFY</button>
         </div>
@@ -34,3 +33,4 @@ export class Playlist extends Component {
     }
 }
 
+export default Playlist;

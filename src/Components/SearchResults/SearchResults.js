@@ -1,7 +1,6 @@
-import {React, Component} from 'react';
-import {TrackList} from '../TrackList/TrackList';
+import React, {Component} from 'react';
+import TrackList from '../TrackList/TrackList';
 import './SearchResults.css';
-
 
 export class SearchResults extends Component {
     constructor(props) {
@@ -21,3 +20,4 @@ export class SearchResults extends Component {
     }
 }
 
+export default SearchResults;

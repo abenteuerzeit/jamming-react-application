@@ -1,8 +1,8 @@
-import {React, Component} from 'react';
+import { Component} from 'react';
 import './App.css';
-import {SearchBar} from '../SearchBar/SearchBar.js';
-import {SearchResults} from '../SearchResults/SearchResults.js';
-import {Playlist} from '../Playlist/Playlist.js';
+import SearchBar from '../../Components/SearchBar/SearchBar';
+import SearchResults from '../../Components/SearchResults/SearchResults.js';
+import Playlist from '../../Components/Playlist/Playlist.js';
 
 
 class App extends Component {
@@ -84,21 +84,21 @@ class App extends Component {
       console.log(term);
     }
 
-    render() {
-    return (
+    render() {return (
     <div>
-      <h1>Ja<span className="highlight">mmm</span>ing</h1>
+      <h1>Ja<span className="highlight">mmm</span>ing</h1>      
       <div className="App">
-        <SearchBar />
+        <SearchBar />   
         <div className="App-playlist">
-          <SearchResults searchResults={ this.state.SearchResults } />
-          <Playlist playlistName={this.state.playlistName}
-                    playlistTracks={this.state.playlistTracks}
-                    onRemove={this.removeTrack}
-                    onNameChange={this.updatePlaylistName}
-                    />
+          <SearchResults searchResults={ this.state.SearchResults } /> 
+          <Playlist 
+              playlistName={this.state.playlistName}
+              playlistTracks={this.state.playlistTracks}
+              onRemove={this.removeTrack}
+              onNameChange={this.updatePlaylistName}
+            />
         </div>
-      </div>
+      </div> 
     </div>
     );
   }

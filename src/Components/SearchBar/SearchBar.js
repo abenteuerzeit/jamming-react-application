@@ -1,15 +1,22 @@
-import { React, Component } from "react";
+import React, { Component } from "react";
 import './SearchBar.css'
 
-
-export class SearchBar extends Component {
+class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            query: ''
+            search: 'nu metal'
         };
         this.search = this.search.bind(this);
         this.handleTermChange = this.handleTermChange.bind(this);
+    }
+
+    search() {
+        this.props.onSearch(this.state.search);
+    }
+
+    handleTermChange(event) {
+        this.setState({ search: event.target.value });
     }
     
     render() {
@@ -20,5 +27,6 @@ export class SearchBar extends Component {
             </div>
         );
     }
-};
+}
 
+export default SearchBar;
