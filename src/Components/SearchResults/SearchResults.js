@@ -1,18 +1,23 @@
 import {React, Component} from 'react';
-import {TrackList} from './';
+import {TrackList} from '../TrackList/TrackList';
 import './SearchResults.css';
 
 
-class SearchResults extends Component {
+export class SearchResults extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            searchResults: []
+        };
+    }
+
     render() {        
         return (
             <div className="SearchResults">
                 <h2>Results</h2>
-                <TrackList />
+                <TrackList tracks={this.props.SearchResults}/>
             </div>
         );
     }
 }
-
-export default SearchResults;
 
