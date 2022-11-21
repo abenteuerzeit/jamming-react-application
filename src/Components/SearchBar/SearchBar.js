@@ -4,17 +4,15 @@ class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            search: 'nu metal'
+            search: ''
         };
         this.search = this.search.bind(this);
         this.handleTermChange = this.handleTermChange.bind(this);
     }
     search() {
-        console.log(`searching for ${this.state.search}`);
-        this.props.onSearch(this.state.search);
+        this.props.OnSearch(this.state.search);
     }
     handleTermChange(event) {
-        console.log(`onTermChange: ${event.target.value}`);
         this.setState({ search: event.target.value });
     }
     render() {
