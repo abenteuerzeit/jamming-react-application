@@ -5,19 +5,11 @@ class TrackList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tracks: this.props.tracks,
+
         };
-        this.addTrack = this.addTrack.bind(this);
-        this.removeTrack = this.removeTrack.bind(this);
-    }
-    addTrack() {
-        this.props.onAdd(this.props.track);
-    }
-    removeTrack() {
-        this.props.onRemove(this.props.track);
     }
     renderListOfTracks = (tracks) => tracks.map( track => 
-        <Track track={track}  key={track.id} onAdd={this.addTrack} onRemove={this.removeTrack} isRemoval={this.props.isRemoval} />
+        <Track track={track}  key={track.id} onAdd={this.props.onAdd} onRemove={this.props.OnRemove} isRemoval={this.props.isRemoval} />
         );
     render() {
         return (

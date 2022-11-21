@@ -18,10 +18,14 @@ class Track extends Component {
         }
     }
     addTrack() {
-        this.props.onAdd(this.state.track);
+        console.log('Adding track');
+        this.setState(
+            this.props.onAdd(this.state.track)
+        )
     }
     removeTrack() {
-        this.props.onRemove(this.state.track);
+        console.log('Removing track');
+        this.props.onRemove(this.props.track);
     }
     render() {
         return (
