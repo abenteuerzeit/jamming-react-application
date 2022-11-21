@@ -77,9 +77,11 @@ class App extends Component {
     savePlaylist() {
       const trackURIs = this.state.playlistTracks.map(track => track.uri);
     }
-    search(term) {
+    async search(term) {
+      // TODO: Add search functionality 
       console.log(term);
-      Spotify.search(term).then(searchResults => {
+      console.warn('Search functionality not yet fully implemented')
+      await Spotify.search(term).then(searchResults => {
         this.setState({ searchResults: searchResults });
       });
     }

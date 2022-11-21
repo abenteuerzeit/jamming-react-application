@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import {CLIENT_ID, REDIRECT_URI, ENDPOINT, REDIRECT_URI } from '../util/Secrets';
+import {CLIENT_ID, REDIRECT_URI, ENDPOINT } from '../util/Secrets';
 
 
 let UserAccessToken = '';
@@ -23,17 +23,15 @@ const getAccessToken = () => {
 };
 
 class Spotify extends Component {
-    search(term) {
+    async search(term) {
         const uri = `https://api.spotify.com${ENDPOINT}&q=${term}`
-        return new Promise ( (resolve, reject) => { 
-            fetch(uri, { headers: {Authorization: `Bearer ${accessToken}`}})
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
+        return await fetch(uri, { headers: {Authorization: `Bearer ${getAccessToken()}`}})
+            .then( (response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
                 }
-                throw new Error('Request failed!');
-            }, networkError => console.log(networkError.message))
-            .then(jsonResponse => {
+                return response.json();})
+            .then( (jsonResponse) => {
                 if (jsonResponse.tracks) {
                     return jsonResponse.tracks.items.map(track => ({
                         id: track.id,
@@ -42,10 +40,12 @@ class Spotify extends Component {
                         album: track.album.name,
                         uri: track.uri
                     }));
-                }
+                }})
+            .catch( (error) => {
+                console.error("There has been a problem with the fetch operation: ", error.message);
             });
-        });
-    }
+        }
 }
+
 
 export default Spotify;
