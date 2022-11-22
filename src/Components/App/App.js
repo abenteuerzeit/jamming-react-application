@@ -9,17 +9,9 @@ class App extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        searchResults : [
-          { name : 'Malarcky', artist : 'Joe Biden', album : 'The Best of Joe Biden', id : 1 },
-          { name : 'Across the Golden Fields', artist : 'Foxy Shazam', album : 'The Flamingo Trigger', id : 2 },
-          { name : 'Tocixity', artist : 'System of a Down', album : 'Toxicity', id: 3 }
-        ],
+        searchResults : [],
         playlistName: 'Intense Music Playlist',
-        playlistTracks : [
-          { name: 'Nookie', artist: 'Limb Bizkit', album: 'Significant Other', id: 4 },
-          { name: 'Turbo Killer', artist: 'Carpenter Brut', album: 'Trilogy', id: 5 },
-          { name: 'Let the Bodies Hit the Floor', artist: 'Drowning Pool', album: 'Nu Metal Various Artists Collection', id: 6}
-        ]
+        playlistTracks : []
       };
       this.addTrack = this.addTrack.bind(this);
       this.removeTrack = this.removeTrack.bind(this);
@@ -54,7 +46,12 @@ class App extends Component {
     
     savePlaylist() {
       const trackURIs = this.state.playlistTracks.map(track => track.uri);
-      console.log(`Saving playlist ${this.state.playlistName} with tracks ${trackURIs}`);
+      Spotify.savePlaylist(this.state.playlistName, trackURIs).then(() => {
+        this.setState({
+          playlistName: 'New Playlist',
+          playlistTracks: []
+        });
+      });
     }
     
     
