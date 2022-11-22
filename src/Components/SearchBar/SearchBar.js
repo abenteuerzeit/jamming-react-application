@@ -4,17 +4,23 @@ class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            search: ''
+            term: ''
         };
         this.search = this.search.bind(this);
         this.handleTermChange = this.handleTermChange.bind(this);
     }
+
+
     search() {
-        this.props.onSearch(this.state.search);
+        this.props.onSearch(this.state.term);
     }
+    
+    
     handleTermChange(event) {
-        this.setState({ search: event.target.value });
+        this.setState({ term: event.target.value });
     }
+    
+    
     render() {
         return (
             <div className="SearchBar">
